@@ -13,7 +13,8 @@ const projects = [
       'Apex Learning is a UK-based e-learning marketplace platform similar to Udemy, offering a wide range of courses from various instructors. The platform enables course creators to upload and sell their educational content while providing students with an interactive learning experience. I contributed to developing the frontend system, implementing features like course browsing, user authentication, and video playback functionality.',
     image: '/images/apexlearning.png',
     technologies: ['Next.js', 'Redux', 'Tailwind CSS', 'Stripe', 'PayPal'],
-    liveUrl: 'https://apex-learning-v2-dev.vercel.app/',
+    liveUrl: '/',
+    // liveUrl: 'https://apex-learning-v2-dev.vercel.app/',
     githubUrl: '#',
   },
   {
