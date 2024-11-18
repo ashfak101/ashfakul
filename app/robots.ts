@@ -9,4 +9,4 @@ export default function robots(): MetadataRoute.Robots {
     },
     sitemap: 'https://your-portfolio.com/sitemap.xml',
   };
-}</content>
+}

@@ -1,7 +1,7 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://your-portfolio.com';
+export default function sitemap (): MetadataRoute.Sitemap {
+  const baseUrl = 'https://your-portfolio.com'
 
   return [
     {
@@ -10,5 +10,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1,
     },
-  ];
-}</content>
+  ]
+}
