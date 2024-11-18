@@ -11,8 +11,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: " Ashfalul's Portfolio | React & Next.js Expert",
-    template: "Ashfalul's Portfolio ",
+    default: " Ashfakul's Portfolio | React & Next.js Expert",
+    template: "Ashfakul's Portfolio ",
   },
   description:
     'Expert Frontend Developer specializing in React, Next.js, Redux, and modern web technologies. View my projects and get in touch for collaboration.',
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://ashfakul.vercel.app/',
-    siteName: "Ashfalul's Portfolio ",
-    title: " Ashfalul's Portfolio | React & Next.js Expert",
+    siteName:"Ashfakul's Portfolio ",
+    title: " Ashfakul's Portfolio | React & Next.js Expert",
     description:
       'Expert Frontend Developer specializing in React, Next.js, Redux, and modern web technologies. View my projects and get in touch for collaboration.',
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title:  " Ashfalul's Portfolio | React & Next.js Expert",
+    title:  " Ashfakul's Portfolio | React & Next.js Expert",
     description:
       'Expert Frontend Developer specializing in React, Next.js, Redux, and modern web technologies. View my projects and get in touch for collaboration.',
     images: ['/images/og-image.png'],
