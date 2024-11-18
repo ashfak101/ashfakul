@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: {
     default: " Ashfalul's Portfolio | React & Next.js Expert",
-    template: '%s | Frontend Developer Portfolio',
+    template: "Ashfalul's Portfolio ",
   },
   description:
     'Expert Frontend Developer specializing in React, Next.js, Redux, and modern web technologies. View my projects and get in touch for collaboration.',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://your-portfolio.com',
-    siteName: 'Frontend Developer Portfolio',
-    title: 'Frontend Developer Portfolio | React & Next.js Expert',
+    url: 'https://ashfakul.vercel.app/',
+    siteName: "Ashfalul's Portfolio ",
+    title: " Ashfalul's Portfolio | React & Next.js Expert",
     description:
       'Expert Frontend Developer specializing in React, Next.js, Redux, and modern web technologies. View my projects and get in touch for collaboration.',
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Frontend Developer Portfolio | React & Next.js Expert',
+    title:  " Ashfalul's Portfolio | React & Next.js Expert",
     description:
       'Expert Frontend Developer specializing in React, Next.js, Redux, and modern web technologies. View my projects and get in touch for collaboration.',
     images: ['/images/og-image.png'],
@@ -80,7 +80,7 @@ export default function RootLayout({
       <Head>
         <meta charSet='utf-8' />
         <link rel='icon' href='/favicon.ico' />
-        <link rel='canonical' href='https://your-portfolio.com' />
+        <link rel='canonical' href='https://ashfakul.vercel.app/' />
       </Head>
       <body className={inter.className}>
         <ThemeProvider
