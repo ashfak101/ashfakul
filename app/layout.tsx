@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Roboto } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -8,6 +8,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] });
+const robots = Roboto({ subsets: ['latin'], weight: '400' })
 
 export const metadata: Metadata = {
   title: {
