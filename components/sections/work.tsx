@@ -30,8 +30,7 @@ export const WorkSection = () => {
                   maintain scalable, secure, and efficient software solutions
                 </li>
                 <li>
-                  Implement best practices for code quality, performance, and
-                  security
+                  Implement best practices for code quality, performance, and security
                 </li>
                 <li>
                   Participate in code reviews and provide constructive feedback
