@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { ModeToggle } from './mode-toggle';
 import Image from 'next/image';
+import { ThemeSwitcher } from './theme-switcher';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +35,7 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
+             <ThemeSwitcher />
             <ModeToggle />
           </div>
 
@@ -64,7 +66,8 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              <div className='px-3 py-2'>
+              <div className='px-3 py-2 flex items-center gap-2'>
+                <ThemeSwitcher />
                 <ModeToggle />
               </div>
             </div>

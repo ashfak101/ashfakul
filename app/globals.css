@@ -1,13 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* In app/globals.css, update the root variables */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Default color theme variables that can be dynamically changed */
+  --primary-light: hsl(210, 100%, 50%); /* Default blue */
+  --accent-light: hsl(35, 100%, 60%); /* Default gold accent */
+  --primary-dark: hsl(210, 100%, 40%); /* Darker blue for dark mode */
+  --accent-dark: hsl(35, 100%, 55%); /* Slightly darker gold for dark mode */
+  
+  /* Light theme */
+  --primary: 210 100% 50%; /* Will be dynamically updated */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 210 50% 95%;
+  --secondary-foreground: 210 80% 30%;
+  --accent: 35 100% 60%; /* Will be dynamically updated */
+  --accent-foreground: 0 0% 9%;
+  --muted: 210 20% 96%;
+  --muted-foreground: 210 40% 40%;
+  --border: 210 20% 90%;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -45,30 +57,18 @@
     --radius: 0.5rem;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
+    /* Dark theme */
+    --background: 210 30% 8%;
+    --foreground: 210 20% 98%;
+    --primary: 210 100% 40%; /* Will be dynamically updated */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 50% 20%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --accent: 35 100% 55%; /* Will be dynamically updated */
+    --accent-foreground: 0 0% 9%;
+    --muted: 210 30% 15%;
+    --muted-foreground: 210 20% 80%;
+    --border: 210 30% 18%;
   }
 }
 
@@ -94,4 +94,119 @@
 
 .color-animation {
   animation: colorChange 2s infinite;
+}
+/* Add to globals.css */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+  border-radius: 2px;
+}
+/* Add to globals.css */
+.enhanced-card {
+  border-radius: 12px;
+  border: 1px solid rgba(var(--card-border-rgb), 0.1);
+  background: linear-gradient(145deg, 
+    rgba(var(--card-bg-rgb), 0.7), 
+    rgba(var(--card-bg-rgb), 0.9));
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.enhanced-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Add these RGB variables to :root */
+:root {
+  --card-border-rgb: 210, 220, 230;
+  --card-bg-rgb: 255, 255, 255;
+}
+
+.dark {
+  --card-border-rgb: 30, 40, 50;
+  --card-bg-rgb: 20, 25, 35;
+}
+/* Add to globals.css */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+.hover-lift {
+  transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+.button-glow {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.button-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.button-glow:hover::after {
+  opacity: 1;
+}
+/* Add to globals.css */
+.section-spacing {
+  padding: 6rem 0;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
 }
