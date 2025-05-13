@@ -6,9 +6,10 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ['latin'] });
-const robots = Roboto({ subsets: ['latin'], weight: '400' })
+const robots = Roboto({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
   title: {
@@ -33,8 +34,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ashfakul.vercel.app/',
-    siteName:"Ashfakul's Portfolio ",
+    url: 'https://ashfakulkarim.xyz/',
+    siteName: "Ashfakul's Portfolio ",
     title: " Ashfakul's Portfolio | React & Next.js Expert",
     description:
       'Expert Frontend Developer specializing in React, Next.js, Redux, and modern web technologies. View my projects and get in touch for collaboration.',
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title:  " Ashfakul's Portfolio | React & Next.js Expert",
+    title: " Ashfakul's Portfolio | React & Next.js Expert",
     description:
       'Expert Frontend Developer specializing in React, Next.js, Redux, and modern web technologies. View my projects and get in touch for collaboration.',
     images: ['/images/og-image.png'],
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: '6hfr8b1Vo01MufjLDQuj6YQhJHOxCH7fE3uMM3gGU3k',
   },
 };
 
@@ -81,7 +82,11 @@ export default function RootLayout({
       <Head>
         <meta charSet='utf-8' />
         <link rel='icon' href='/favicon.ico' />
-        <link rel='canonical' href='https://ashfakul.vercel.app/' />
+        <link rel='canonical' href='https://ashfakulkarim.xyz/' />
+        <meta
+          name='google-site-verification'
+          content='6hfr8b1Vo01MufjLDQuj6YQhJHOxCH7fE3uMM3gGU3k'
+        />
       </Head>
       <body className={inter.className}>
         <ThemeProvider
@@ -95,6 +100,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <Toaster />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
