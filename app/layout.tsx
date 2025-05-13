@@ -7,6 +7,8 @@ import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/next';
+import { PersonJsonLd } from '@/components/json-ld';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 const robots = Roboto({ subsets: ['latin'], weight: '400' });
@@ -31,6 +33,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Md Ashfakul Karim Rahi' }],
   creator: 'Ashfakul Karim Rahi',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-touch-icon-precomposed.png',
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -67,6 +78,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  metadataBase: new URL('https://ashfakulkarim.xyz'),
+  alternates: {
+    canonical: '/',
+  },
   verification: {
     google: '6hfr8b1Vo01MufjLDQuj6YQhJHOxCH7fE3uMM3gGU3k',
   },
@@ -79,16 +94,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <Head>
-        <meta charSet='utf-8' />
-        <link rel='icon' href='/favicon.ico' />
-        <link rel='canonical' href='https://ashfakulkarim.xyz/' />
-        <meta
-          name='google-site-verification'
-          content='6hfr8b1Vo01MufjLDQuj6YQhJHOxCH7fE3uMM3gGU3k'
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src='https://www.googletagmanager.com/gtag/js?id=G-P8HNY6HV6E'
+          strategy='afterInteractive'
         />
-      </Head>
+        <Script id='google-analytics' strategy='afterInteractive'>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-P8HNY6HV6E');
+          `}
+        </Script>
+      </head>
       <body className={inter.className}>
+        <PersonJsonLd />
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

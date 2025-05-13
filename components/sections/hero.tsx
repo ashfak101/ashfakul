@@ -29,8 +29,8 @@ export function HeroSection() {
                 Frontend Developer
               </h2>
             </motion.div>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -52,8 +52,8 @@ export function HeroSection() {
               </span>{' '}
               and modern web technologies.{' '}
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -97,13 +97,13 @@ export function HeroSection() {
               />
             </div>
             <div className='absolute -inset-1 -z-10 rounded-full bg-gradient-to-br from-primary/60 to-accent/40 blur-2xl' />
-            
+
             {/* Decorative elements */}
             <div className='absolute -top-4 -right-4 w-16 h-16 bg-accent/10 rounded-full blur-xl'></div>
             <div className='absolute -bottom-8 -left-8 w-24 h-24 bg-primary/10 rounded-full blur-xl'></div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
@@ -113,8 +113,8 @@ export function HeroSection() {
               className='text-sm font-medium flex items-center hover:text-accent transition-colors'>
               <Mail className='mr-2 h-4 w-4' /> ashfakulkarim2@gmail.com
             </Link>
-            <Link 
-              href={'/'} 
+            <Link
+              href={'/'}
               className='text-xs mt-2 text-muted-foreground flex items-center hover:text-accent transition-colors'>
               <MapPin className='mr-1 h-3 w-3' /> Sylhet, Bangladesh
             </Link>

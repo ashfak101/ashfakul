@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -47,7 +48,10 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id='projects' className='py-24 sm:py-32'>
+    <section
+      id='projects'
+      className='py-24 sm:py-32'
+      aria-labelledby='projects-heading'>
       <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         <motion.div
           initial={{ opacity: 0 }}
@@ -55,7 +59,9 @@ export function ProjectsSection() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className='mx-auto max-w-2xl text-center'>
-          <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
+          <h2
+            id='projects-heading'
+            className='text-3xl font-bold tracking-tight sm:text-4xl'>
             Featured Projects
           </h2>
           <p className='mt-6 text-lg leading-8 text-muted-foreground'>
@@ -74,10 +80,16 @@ export function ProjectsSection() {
               viewport={{ once: true }}>
               <Card className='h-full'>
                 <CardHeader>
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={500}
+                    height={300}
+                    quality={90}
                     className='aspect-video w-full rounded-lg object-cover'
+                    placeholder='blur'
+                    blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
+                    priority={index < 3} // Prioritize loading for the first three images
                   />
                   <CardTitle className='mt-4'>{project.title}</CardTitle>
                 </CardHeader>
