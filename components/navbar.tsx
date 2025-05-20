@@ -22,7 +22,12 @@ export function Navbar() {
       <div className='container mx-auto px-4'>
         <div className='flex h-16 items-center justify-between'>
           <Link href='/' className='text-2xl font-bold'>
-            <Image src='/images/logo/icon-A.png' alt='logo' width={50} height={50} />
+            <Image
+              src='/images/logo/icon-A.png'
+              alt='logo'
+              width={50}
+              height={50}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -35,8 +40,8 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-             <ThemeSwitcher />
-            <ModeToggle />
+            <ThemeSwitcher />
+            {/* <ModeToggle /> */}
           </div>
 
           {/* Mobile Navigation */}
@@ -68,7 +73,7 @@ export function Navbar() {
               ))}
               <div className='px-3 py-2 flex items-center gap-2'>
                 <ThemeSwitcher />
-                <ModeToggle />
+                {/* <ModeToggle /> */}
               </div>
             </div>
           </div>
