@@ -2,30 +2,55 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Download,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Typewriter } from 'react-simple-typewriter';
 
 export function HeroSection() {
   return (
-    <section id='home' className='py-24 sm:py-32 overflow-hidden'>
+    <section id='home' className='py-16 sm:py-24 overflow-hidden'>
       <div className='mx-auto max-w-7xl px-6 lg:px-8 relative'>
-        <div className='grid items-center gap-12 lg:grid-cols-2'>
+        {/* Background decorative elements */}
+        <div className='absolute inset-0 -z-10'>
+          <div className='absolute -top-40 -right-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl'></div>
+          <div className='absolute top-40 -left-20 h-72 w-72 rounded-full bg-accent/10 blur-3xl'></div>
+        </div>
+
+        <div className='grid items-center gap-12 lg:grid-cols-12'>
+          {/* Left content column (wider on larger screens) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className='text-center lg:text-left relative z-10'>
+            transition={{ duration: 0.6 }}
+            className='text-center lg:text-left relative z-10 lg:col-span-7'>
+            {/* Greeting and name */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className='mb-4 inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium'>
+              <span className='animate-pulse mr-1.5 h-2 w-2 rounded-full bg-primary'></span>
+              <span className='animate-text-color-slow'>
+                Hello, I'm a developer based in Bangladesh
+              </span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <h1 className='text-4xl font-bold tracking-tight sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent'>
+              transition={{ duration: 0.5, delay: 0.3 }}>
+              <h1 className='text-4xl font-bold tracking-tight sm:text-6xl animate-text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-size-200'>
                 Md Ashfakul Karim Rahi
               </h1>
-              <h2 className='text-3xl mt-4 font-bold tracking-tight sm:text-4xl'>
+              <h2 className='text-3xl mt-4 font-bold tracking-tight sm:text-4xl animate-text-color'>
                 Frontend Developer
               </h2>
             </motion.div>
@@ -33,10 +58,10 @@ export function HeroSection() {
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className='mt-6 text-lg leading-8 text-muted-foreground'>
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className='mt-6 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto lg:mx-0'>
               Crafting beautiful and performant web experiences with React js,{' '}
-              <span className='text-accent font-semibold'>
+              <span className='text-accent font-semibold animate-text-shimmer bg-clip-text text-transparent bg-[linear-gradient(110deg,#9333ea,45%,#4f46e5,55%,#9333ea)] bg-size-200'>
                 <Typewriter
                   words={[
                     'Next.js',
@@ -53,74 +78,206 @@ export function HeroSection() {
               and modern web technologies.{' '}
             </motion.p>
 
+            {/* Contact info card for both mobile and desktop */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className='mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 lg:justify-start'>
-              <Button asChild className='button-glow hover-lift bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all'>
+              className='mt-4 mb-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 text-sm text-muted-foreground'>
+              <Link
+                href={'mailto:ashfakulkarim2@gmail.com'}
+                className='flex items-center hover:text-accent transition-colors'>
+                <Mail className='mr-2 h-4 w-4' /> ashfakulkarim2@gmail.com
+              </Link>
+              <span className='hidden sm:inline'>•</span>
+              <Link
+                href={'/'}
+                className='flex items-center hover:text-accent transition-colors'>
+                <MapPin className='mr-1 h-4 w-4' /> Sylhet, Bangladesh
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className='mt-6 flex flex-wrap items-center justify-center gap-4 lg:justify-start'>
+              <Button
+                asChild
+                className='button-glow hover-lift animate-button-gradient bg-gradient-to-r from-primary via-accent to-primary bg-size-200 hover:opacity-90 transition-all'>
                 <a href='#contact'>
                   Contact me <ArrowRight className='ml-2 h-4 w-4' />
                 </a>
               </Button>
-              <Button variant='outline' size='icon' asChild className='hover-lift'>
-                <Link
-                  href='https://github.com/ashfak101'
-                  target='_blank'
-                  rel='noopener noreferrer'>
-                  <Github className='h-4 w-4' />
-                </Link>
+              <Button variant='outline' asChild className='hover-lift'>
+                <a href='/resume.pdf' download>
+                  Download CV <Download className='ml-2 h-4 w-4' />
+                </a>
               </Button>
-              <Button variant='outline' size='icon' asChild className='hover-lift'>
-                <Link
-                  href='https://www.linkedin.com/in/md-ashfakul-karim-rahi-3a0b62211/'
-                  target='_blank'
-                  rel='noopener noreferrer'>
-                  <Linkedin className='h-4 w-4' />
-                </Link>
-              </Button>
+              <div className='flex gap-2'>
+                <Button
+                  variant='outline'
+                  size='icon'
+                  asChild
+                  className='hover-lift'>
+                  <Link
+                    href='https://github.com/ashfak101'
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    <Github className='h-4 w-4' />
+                  </Link>
+                </Button>
+                <Button
+                  variant='outline'
+                  size='icon'
+                  asChild
+                  className='hover-lift'>
+                  <Link
+                    href='https://www.linkedin.com/in/md-ashfakul-karim-rahi-3a0b62211/'
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    <Linkedin className='h-4 w-4' />
+                  </Link>
+                </Button>
+              </div>
             </motion.div>
           </motion.div>
 
+          {/* Right image column */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className='relative mx-auto aspect-square w-full max-w-md lg:max-w-none float-animation'>
-            <div className='relative h-full w-full overflow-hidden rounded-full bg-gradient-to-b from-primary/20 to-primary/40 border-4 border-accent/20 shadow-xl'>
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className='relative mx-auto lg:col-span-5 aspect-square w-full max-w-md lg:max-w-none'>
+            <div className='relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-b from-primary/10 to-accent/20 border border-accent/20 shadow-xl animate-border-glow'>
               <Image
-                src='/images/1.jpg'
+                src='/images/2.4fa599cf.jpg'
                 alt='Professional headshot'
                 fill
                 className='object-cover object-center'
                 priority
               />
+
+              {/* Floating achievement cards */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className='absolute left-0 top-8 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg border border-accent/20'>
+                <div className='flex items-center'>
+                  <div className='bg-primary/20 p-2 rounded-full mr-3'>
+                    <span className='text-primary text-lg animate-text-color'>
+                    3+
+                    </span>
+                  </div>
+                  <span className='font-medium'>Years Experience</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                className='absolute right-0 bottom-8 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg border border-accent/20'>
+                <div className='flex items-center'>
+                  <div className='bg-accent/20 p-2 rounded-full mr-3'>
+                    <span className='text-accent text-lg animate-text-color'>
+                      50+
+                    </span>
+                  </div>
+                  <span className='font-medium'>Projects</span>
+                </div>
+              </motion.div>
             </div>
-            <div className='absolute -inset-1 -z-10 rounded-full bg-gradient-to-br from-primary/60 to-accent/40 blur-2xl' />
 
-            {/* Decorative elements */}
-            <div className='absolute -top-4 -right-4 w-16 h-16 bg-accent/10 rounded-full blur-xl'></div>
-            <div className='absolute -bottom-8 -left-8 w-24 h-24 bg-primary/10 rounded-full blur-xl'></div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className='absolute hidden lg:flex flex-col items-end right-0 text-right bg-gradient-to-r from-background/80 to-background/95 backdrop-blur-sm px-5 py-4 rounded-xl shadow-lg border border-accent/20'>
-            <Link
-              href={'mailto:ashfakulkarim2@gmail.com'}
-              className='text-sm font-medium flex items-center hover:text-accent transition-colors'>
-              <Mail className='mr-2 h-4 w-4' /> ashfakulkarim2@gmail.com
-            </Link>
-            <Link
-              href={'/'}
-              className='text-xs mt-2 text-muted-foreground flex items-center hover:text-accent transition-colors'>
-              <MapPin className='mr-1 h-3 w-3' /> Sylhet, Bangladesh
-            </Link>
+            {/* Glow effect behind image */}
+            <div className='absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 blur-2xl opacity-70 animate-pulse-slow' />
           </motion.div>
         </div>
       </div>
+
+      {/* Add CSS for animations in global.css or you can create a style tag here */}
+      <style jsx global>{`
+        @keyframes text-color-change {
+          0% {
+            color: hsl(var(--primary));
+          }
+          50% {
+            color: hsl(var(--accent));
+          }
+          100% {
+            color: hsl(var(--primary));
+          }
+        }
+
+        @keyframes text-color-change-slow {
+          0% {
+            color: hsl(var(--foreground));
+          }
+          50% {
+            color: hsl(var(--accent));
+          }
+          100% {
+            color: hsl(var(--foreground));
+          }
+        }
+
+        @keyframes gradient-shift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
+        @keyframes border-glow {
+          0% {
+            border-color: rgba(var(--primary-rgb), 0.2);
+          }
+          50% {
+            border-color: rgba(var(--accent-rgb), 0.4);
+          }
+          100% {
+            border-color: rgba(var(--primary-rgb), 0.2);
+          }
+        }
+
+        .animate-text-color {
+          animation: text-color-change 3s infinite;
+        }
+
+        .animate-text-color-slow {
+          animation: text-color-change-slow 6s infinite;
+        }
+
+        .animate-text-gradient {
+          animation: gradient-shift 3s ease infinite;
+        }
+
+        .animate-text-shimmer {
+          animation: gradient-shift 2s linear infinite;
+        }
+
+        .animate-button-gradient {
+          animation: gradient-shift 3s ease infinite;
+        }
+
+        .animate-border-glow {
+          animation: border-glow 4s ease infinite;
+        }
+
+        .animate-pulse-slow {
+          animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .bg-size-200 {
+          background-size: 200% 200%;
+        }
+      `}</style>
     </section>
   );
 }
