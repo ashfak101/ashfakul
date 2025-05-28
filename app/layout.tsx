@@ -7,6 +7,7 @@ import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { PersonJsonLd } from '@/components/json-ld';
 import Script from 'next/script';
 
@@ -121,6 +122,7 @@ export default function RootLayout({
             <main className='flex-1'>{children}</main>
             <Footer />
           </div>
+          <SpeedInsights />
           <Toaster />
           <Analytics />
         </ThemeProvider>
