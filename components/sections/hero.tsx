@@ -24,19 +24,19 @@ export function HeroSection() {
           <div className='absolute top-40 -left-20 h-72 w-72 rounded-full bg-accent/10 blur-3xl'></div>
         </div>
 
-        <div className='grid items-center gap-12 lg:grid-cols-12'>
+        <div className=' '>
           {/* Left content column (wider on larger screens) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className='text-center lg:text-left relative z-10 lg:col-span-7'>
+            className='text-center relative z-10 max-w-[650px] mx-auto flex flex-col items-center'>
             {/* Greeting and name */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className='mb-4 inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium'>
+              className='mb-4 inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium mx-auto'>
               <span className='animate-pulse mr-1.5 h-2 w-2 rounded-full bg-primary'></span>
               <span className='animate-text-color-slow'>
                 Hello, I'm a developer based in Bangladesh
@@ -59,7 +59,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className='mt-6 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto lg:mx-0'>
+              className='mt-6 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto text-center'>
               Crafting beautiful and performant web experiences with React js,{' '}
               <span className='text-accent font-semibold animate-text-shimmer bg-clip-text text-transparent bg-[linear-gradient(110deg,#9333ea,45%,#4f46e5,55%,#9333ea)] bg-size-200'>
                 <Typewriter
@@ -83,7 +83,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className='mt-4 mb-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 text-sm text-muted-foreground'>
+              className='mt-4 mb-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-muted-foreground'>
               <Link
                 href={'mailto:ashfakulkarim2@gmail.com'}
                 className='flex items-center hover:text-accent transition-colors'>
@@ -101,7 +101,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className='mt-6 flex flex-wrap items-center justify-center gap-4 lg:justify-start'>
+              className='mt-6 flex flex-wrap items-center justify-center gap-4'>
               <Button
                 asChild
                 className='button-glow hover-lift animate-button-gradient bg-gradient-to-r from-primary via-accent to-primary bg-size-200 hover:opacity-90 transition-all'>
@@ -110,7 +110,7 @@ export function HeroSection() {
                 </a>
               </Button>
               <Button variant='outline' asChild className='hover-lift'>
-                <a href='/resume.pdf' download>
+                <a href='Resume_Ashfakul_Karim_.pdf' download>
                   Download CV <Download className='ml-2 h-4 w-4' />
                 </a>
               </Button>
@@ -141,57 +141,6 @@ export function HeroSection() {
                 </Button>
               </div>
             </motion.div>
-          </motion.div>
-
-          {/* Right image column */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className='relative mx-auto lg:col-span-5 aspect-square w-full max-w-md lg:max-w-none'>
-            <div className='relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-b from-primary/10 to-accent/20 border border-accent/20 shadow-xl animate-border-glow'>
-              <Image
-                src='/images/2.4fa599cf.jpg'
-                alt='Professional headshot'
-                fill
-                className='object-cover object-center'
-                priority
-              />
-
-              {/* Floating achievement cards */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className='absolute left-0 top-8 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg border border-accent/20'>
-                <div className='flex items-center'>
-                  <div className='bg-primary/20 p-2 rounded-full mr-3'>
-                    <span className='text-primary text-lg animate-text-color'>
-                    3+
-                    </span>
-                  </div>
-                  <span className='font-medium'>Years Experience</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-                className='absolute right-0 bottom-8 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg border border-accent/20'>
-                <div className='flex items-center'>
-                  <div className='bg-accent/20 p-2 rounded-full mr-3'>
-                    <span className='text-accent text-lg animate-text-color'>
-                      50+
-                    </span>
-                  </div>
-                  <span className='font-medium'>Projects</span>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Glow effect behind image */}
-            <div className='absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 blur-2xl opacity-70 animate-pulse-slow' />
           </motion.div>
         </div>
       </div>
