@@ -56,7 +56,7 @@ const colorThemes: ColorTheme[] = [
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
-  const [colorTheme, setColorTheme] = React.useState<string>('blue');
+  const [colorTheme, setColorTheme] = React.useState<string>('green');
   const [isOpen, setIsOpen] = React.useState(false);
 
   // Apply the color theme by updating CSS variables
@@ -123,15 +123,31 @@ export function ThemeSwitcher() {
         <Button
           variant='ghost'
           size='icon'
-          className='relative transition-all duration-200 hover:bg-accent/20'
+          className='relative transition-all duration-200 hover:bg-accent/20 '
           aria-label='Theme settings'>
           <motion.div
-            initial={{ scale: 0.95 }}
-            animate={{ scale: isOpen ? 0.9 : 1, rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.2 }}>
-            <Palette className='h-[1.2rem] w-[1.2rem]' />
+            initial={{ scale: 1 }}
+            animate={{
+              scale: [1, 1.15, 1],
+              boxShadow: [
+                '0 0 0px 0px var(--accent-light, #fbbf24)',
+                '0 0 12px 4px var(--accent-light, #fbbf24)',
+                '0 0 0px 0px var(--accent-light, #fbbf24)',
+              ],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatType: 'loop',
+            }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Palette className='h-[1.5rem] w-[1.5rem] ' />
           </motion.div>
-          <span className='sr-only'>Appearance settings</span>
+          <span className='sr-only text-red'>Appearance settings</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='w-56'>
@@ -149,7 +165,7 @@ export function ThemeSwitcher() {
           <Button
             variant={theme === 'dark' ? 'default' : 'outline'}
             size='sm'
-            className='flex-1 ml-1'
+            className='flex-1 ml-1 text-white'
             onClick={() => setTheme('dark')}>
             <Moon className='h-4 w-4 mr-1' /> Dark
           </Button>
