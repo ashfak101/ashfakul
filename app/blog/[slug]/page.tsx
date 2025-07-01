@@ -158,6 +158,30 @@ const blogPosts = [
   },
 ];
 
+// SEO: Generate metadata for each post
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = blogPosts.find((post) => post.slug === params.slug);
+  if (!post) {
+    return {
+      title: 'Post not found | Blog',
+      description: "The blog post you're looking for doesn't exist.",
+    };
+  }
+  return {
+    title: `${post.title} | Blog`,
+    description: post.description,
+    openGraph: {
+      title: `${post.title} | Blog`,
+      description: post.description,
+      type: 'article',
+    },
+  };
+}
+
 // This function is required for Next.js static export
 export function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -207,7 +231,11 @@ const BlogPostPage = ({ params }: PageProps) => {
       <div className='prose prose-lg max-w-none'>
         {post.content.split('\n\n').map((paragraph, index) => (
           <p key={index} className='mb-6'>
-            {parse(paragraph) /* Use html-react-parser to render HTML content */}
+            {
+              parse(
+                paragraph
+              ) /* Use html-react-parser to render HTML content */
+            }
           </p>
         ))}
       </div>
