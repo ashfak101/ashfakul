@@ -18,13 +18,13 @@ const blogPosts: BlogPost[] = [
     title: '🚀 Why I Chose Next.js for My Portfolio',
     description: 'Discover the benefits of using Next.js for building modern, performant web applications and why it was the perfect choice for my portfolio.',
     date: 'April 15, 2023',
-    slug: '/blog'
+    slug: '/blog/why-nextjs'
   },
   {
     title: '💻 5 Essential Tools Every Frontend Developer Should Know',
     description: 'A curated list of must-have tools and extensions that will boost your productivity as a frontend developer.',
-    date: 'March 22, 2023',
-    slug: '#'
+    date: 'June 01, 2025',
+    slug: '/blog/essential-frontend-tools'
   },
   {
     title: '🎨 Creating Beautiful UI with Tailwind CSS',

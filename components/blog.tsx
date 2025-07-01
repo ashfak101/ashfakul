@@ -24,8 +24,8 @@ const blogPosts: BlogPost[] = [
   {
     title: '💻 5 Essential Tools Every Frontend Developer Should Know',
     description: 'A curated list of must-have tools and extensions that will boost your productivity.',
-    date: 'March 22, 2023',
-    slug: '#'
+    date: 'June 01, 2025',
+    slug: '/blog/essential-frontend-tools'
   },
   {
     title: '🎨 Creating Beautiful UI with Tailwind CSS',
@@ -48,7 +48,7 @@ export function BlogSection() {
           >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Latest Blog Posts</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mt-4">
-              Thoughts, insights, and tutorials on web development and design.  
+              Thoughts, insights, and tutorials on web development and design.
             </p>
           </motion.div>
         </div>
