@@ -36,7 +36,7 @@ const blogPosts: BlogPost[] = [
 
 export function BlogSection() {
   return (
-    <section id="blog" className="py-24 sm:py-32" aria-labelledby="blog-heading">
+    <section id="blog" className="py-8 sm:py-12" aria-labelledby="blog-heading">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
