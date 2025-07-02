@@ -141,6 +141,17 @@ export function HeroSection() {
                 </Button>
               </div>
             </motion.div>
+            <Link
+              href='https://backlink-list.com/product/e99e8573-1486-40f9-a458-8f1b621e7c31'
+              target='_blank'
+              title='Backlink-list.com Top 3 Daily Winner'
+              className='mt-4 '>
+              <img
+                src='https://backlink-list.com/badges/top2-badge.png'
+                alt='Backlink-list Badge'
+                style={{ width: '250px', height: 'auto' }}
+              />
+            </Link>
           </motion.div>
         </div>
       </div>
